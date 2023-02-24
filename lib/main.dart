@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: Colors.blue[800],
+        backgroundColor: const Color.fromRGBO(110, 133, 183, 100),
         // appBar: AppBar(
         //   automaticallyImplyLeading: false,
         //   centerTitle: false,
@@ -68,15 +68,25 @@ class _HomePageState extends State<HomePage> {
                     height: 30.0,
                   ),
                   currentWeather(
-                      Icons.wb_sunny, data!.temp.toString(), data!.cityName!),
+                      data!.icon.toString(),
+                      data!.description.toString().toUpperCase(),
+                      data!.temp.toString(),
+                      data!.cityName!),
                   const SizedBox(
                     height: 20.0,
                   ),
+                  const Divider(
+                    color: Colors.white,
+                  ),
                   additionalInformation(
-                      data!.wind.toString(),
-                      data!.humidity.toString(),
-                      data!.feelsLike.toString(),
-                      data!.pressure.toString()),
+                    data!.wind.toString(),
+                    data!.humidity.toString(),
+                    data!.pressure.toString(),
+                    data!.feelsLike.toString(),
+                  ),
+                  const Divider(
+                    color: Colors.white,
+                  ),
                 ],
               );
             }
